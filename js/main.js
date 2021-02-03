@@ -1,4 +1,4 @@
-function getRandomNatural(min, max) {
+const getRandomNatural = function(min, max) {
   if (min >= 0 && max >= 0 && max > min) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -6,8 +6,10 @@ function getRandomNatural(min, max) {
   }
   return 0;
 }
-checkStringLength = function (inputString, maxLength) {
+const checkStringLength = function (inputString, maxLength) {
   if (inputString.length <= maxLength)
     return true;
   return false;
 }
+checkStringLength ('test',4);
+getRandomNatural (5,20);
