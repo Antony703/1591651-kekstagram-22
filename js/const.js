@@ -21,3 +21,4 @@ const PHOTO_DESCRIPTIONS = [
   'Кошачье путешествие',
   'Мир глазами котов'
 ]
+export {COMMENT_MESSAGES,AUTHOR_NAMES,PHOTO_DESCRIPTIONS};

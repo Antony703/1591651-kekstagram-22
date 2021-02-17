@@ -1,3 +1,4 @@
+import {COMMENT_MESSAGES,AUTHOR_NAMES,PHOTO_DESCRIPTIONS} from './const.js';
 const getRandomNatural = function (min, max) {
   if (max >= 0 && max > min) {
     if (min < 0) {
