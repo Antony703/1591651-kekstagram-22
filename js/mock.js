@@ -1,4 +1,5 @@
 import {COMMENT_MESSAGES,AUTHOR_NAMES,PHOTO_DESCRIPTIONS} from './const.js';
+import {isStringLengthCorrect} from './util.js';
 const getRandomNatural = function (min, max) {
   if (max >= 0 && max > min) {
     if (min < 0) {
@@ -9,11 +10,6 @@ const getRandomNatural = function (min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
   }
   return 0;
-}
-const isStringLengthCorrect = function (inputString, maxLength) {
-  if (inputString.length <= maxLength)
-    return true;
-  return false;
 }
 const createComments = (number_of_comments) => {
   let comments = [];
@@ -38,9 +34,10 @@ const createPhotoDescription = (index) => {
 }
 isStringLengthCorrect('test', 4);
 getRandomNatural(5, 20);
-console.log(createPhotoDescription());
+//console.log(createPhotoDescription());
 let photoDescriptions = [];
 for (let i = 0; i < 25; i++) {
   photoDescriptions.push(createPhotoDescription(i + 1));
 }
-console.log(photoDescriptions);
+//console.log(photoDescriptions);
+export {photoDescriptions};
