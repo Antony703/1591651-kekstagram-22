@@ -4,4 +4,16 @@ const isStringLengthCorrect = function (inputString, maxLength) {
   return false;
 }
 
-export {isStringLengthCorrect}
+const getRandomNatural = function (min, max) {
+  if (max >= 0 && max > min) {
+    if (min < 0) {
+      min = 0;
+    }
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+  }
+  return 0;
+}
+
+export {isStringLengthCorrect, getRandomNatural};

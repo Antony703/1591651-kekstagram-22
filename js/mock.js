@@ -1,16 +1,6 @@
 import {COMMENT_MESSAGES,AUTHOR_NAMES,PHOTO_DESCRIPTIONS} from './const.js';
-import {isStringLengthCorrect} from './util.js';
-const getRandomNatural = function (min, max) {
-  if (max >= 0 && max > min) {
-    if (min < 0) {
-      min = 0;
-    }
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-  }
-  return 0;
-}
+import {getRandomNatural} from './util.js';
+
 const createComments = (number_of_comments) => {
   let comments = [];
   for (let i = 0; i < number_of_comments; i++) {
@@ -23,6 +13,7 @@ const createComments = (number_of_comments) => {
   }
   return comments;
 }
+
 const createPhotoDescription = (index) => {
   return {
     id: index,
@@ -32,12 +23,10 @@ const createPhotoDescription = (index) => {
     comments: createComments(getRandomNatural(1, 10))
   }
 }
-isStringLengthCorrect('test', 4);
-getRandomNatural(5, 20);
-//console.log(createPhotoDescription());
+
 let photoDescriptions = [];
 for (let i = 0; i < 25; i++) {
   photoDescriptions.push(createPhotoDescription(i + 1));
 }
-//console.log(photoDescriptions);
+
 export {photoDescriptions};
