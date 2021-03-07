@@ -22,8 +22,8 @@ export const showBigPicture = (photoDescription) => {
     newComment.appendChild(newCommentText);
     comments.appendChild(newComment);
   }
-  for (let i = 0; i < photoDescription.comments.length; i++) {
-    addComment(photoDescription.comments[i]);
+  for (let com of photoDescription.comments) {
+    addComment(com);
   }
 
 }
