@@ -6,7 +6,7 @@ const createComments = (number_of_comments) => {
   for (let i = 0; i < number_of_comments; i++) {
     comments.push({
       id: getRandomNatural(1, 3000),
-      avatar: 'img/avatar' + getRandomNatural(1, 7) + '.svg',
+      avatar: 'img/avatar-' + getRandomNatural(1, 7) + '.svg',
       message: COMMENT_MESSAGES[getRandomNatural(0, COMMENT_MESSAGES.length)],
       name: AUTHOR_NAMES[getRandomNatural(0, AUTHOR_NAMES.length)]
     })
