@@ -1,6 +1,16 @@
 export const showBigPicture = (photoDescription) => {
   const bigPicture = document.querySelector('.big-picture');
   bigPicture.classList.remove('hidden');
+  const closeBigPicture = bigPicture.querySelector('#picture-cancel');
+  closeBigPicture.addEventListener('click',() => {
+    bigPicture.classList.add('hidden');
+  });
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === ('Escape' || 'Esc')) {
+      evt.preventDefault();
+      bigPicture.classList.add('hidden');
+    }
+  });
   bigPicture.querySelector('.big-picture__img').children[0].src = photoDescription.url;
   bigPicture.querySelector('.likes-count').textContent = photoDescription.likes;
   bigPicture.querySelector('.comments-count').textContent = photoDescription.comments.length;
