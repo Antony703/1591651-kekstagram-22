@@ -15,5 +15,9 @@ const getRandomNatural = function (min, max) {
   }
   return 0;
 }
-
-export {isStringLengthCorrect, getRandomNatural};
+const clearComments = (comments) => {
+  while (comments.firstChild) {
+    comments.removeChild(comments.firstChild);
+  }
+}
+export {isStringLengthCorrect, getRandomNatural,clearComments};

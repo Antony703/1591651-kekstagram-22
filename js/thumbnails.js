@@ -14,9 +14,7 @@ photoDescriptions.forEach((photoDescription) => {
   pictureOtherUser.querySelector('.picture__likes').textContent = photoDescription.likes;
   pictureOtherUser.querySelector('.picture__comments').textContent = photoDescription.comments.length;
   picturesOtherUsersList.appendChild(pictureOtherUser);
-  pictureOtherUser.addEventListener('click',()=> {
-    showBigPicture(photoDescription);
-  });
+  pictureOtherUser.addEventListener('click',()=> {showBigPicture(photoDescription)});
 });
 
 pictures.appendChild(picturesOtherUsersList);
