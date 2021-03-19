@@ -1,5 +1,6 @@
 import {zoomPhoto} from './scale.js';
-import {selectEffect} from './effects.js';
+import {selectEffect, removePictureEffect} from './effects.js';
+
 
 const uploadButton = document.querySelector('#upload-file');
 const editForm = document.querySelector('.img-upload__overlay');
@@ -24,6 +25,7 @@ const closeEditPhoto = function () {
   cancelUploadButton.removeEventListener('click', closeEditPhoto);
   document.removeEventListener('keydown', onPressEsc);
   uploadButton.value = '';
+  removePictureEffect();
 }
 
 const editPhoto = function () {
