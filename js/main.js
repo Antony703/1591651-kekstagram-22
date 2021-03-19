@@ -1,6 +1,6 @@
-import './util.js';
+//import './util.js';
 import './upload.js';
 import './modify.js';
-import './const.js';
-import './mock.js';
+//import './const.js';
+//import './mock.js';
 import './thumbnails.js'
