@@ -10,7 +10,7 @@
       max: 1,
       step: 0.1,
       unit: '',
-      css: 'filter: grayscale'
+      css: 'grayscale'
     },
     {
       effect: 'sepia',
@@ -18,7 +18,7 @@
       max: 1,
       step: 0.1,
       unit: '',
-      css: 'filter: sepia'
+      css: 'sepia'
     },
     {
       effect: 'marvin',
@@ -26,7 +26,7 @@
       max: 100,
       step: 1,
       unit: '%',
-      css: 'filter: invert',
+      css: 'invert',
     },
     {
       effect: 'phobos',
@@ -34,7 +34,7 @@
       max: 3,
       step: 0.1,
       unit: 'px',
-      css: 'filter: blur'
+      css: 'blur'
     },
     {
       effect: 'heat',
@@ -42,25 +42,11 @@
       max: 3,
       step: 0.1,
       unit: '',
-      css: 'filter: brightness'
+      css: 'brightness'
     }
   ];
-  // const applyEffect = function (evt) {
-  // };
-
-  noUiSlider.create(sliderElement, {
-    range: {
-      min: 0,
-      max: 100,
-    },
-    start: 0,
-    step: 1,
-    connect: 'lower'
-  });
-  sliderElement.parentElement.classList.add('hidden');
 
   const updateSliderOptions = function (element) {
-    picture.className = `effects__preview--${element.effect}`;
     sliderElement.parentElement.classList.remove('hidden');
     sliderElement.noUiSlider.updateOptions({
       range: {
@@ -80,21 +66,20 @@
 
   const selectEffect = function () {
     effectsList.addEventListener('change', (evt) => {
-
       if (evt.target.matches('input[type="radio"]')) {
-
         effectsPatterns.forEach((element) => {
           if (evt.target.value === element.effect) {
             updateSliderOptions(element);
+            picture.className = `effects__preview--${element.effect}`;
 
             sliderElement.noUiSlider.on('update', (value) => {
-              picture.setAttribute('style', `${element.css}(${value}${element.unit})`);
+              picture.style.filter = `${element.css}(${value}${element.unit})`;
               effectLevel.value = value;
             });
           } else
           if (evt.target.value === 'none') {
             picture.className = '';
-            picture.removeAttribute('style');
+            picture.style.filter = null;
             effectLevel.value = '';
             sliderElement.parentElement.classList.add('hidden')
           }
@@ -102,6 +87,19 @@
       }
     });
   }
+  noUiSlider.create(sliderElement, {
+    range: {
+      min: 0,
+      max: 100,
+    },
+    start: 0,
+    step: 1,
+    connect: 'lower'
+  });
+
+  sliderElement.parentElement.classList.add('hidden');
+
   export {
-    selectEffect, removePictureEffect
+    selectEffect,
+    removePictureEffect
   }
