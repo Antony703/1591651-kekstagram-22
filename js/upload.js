@@ -1,5 +1,6 @@
 import {zoomPhoto} from './scale.js';
 import {selectEffect, removePictureEffect} from './effects.js';
+import {checkHashTags,removeTagListeners} from './hash.js';
 
 
 const uploadButton = document.querySelector('#upload-file');
@@ -26,12 +27,14 @@ const closeEditPhoto = function () {
   document.removeEventListener('keydown', onPressEsc);
   uploadButton.value = '';
   removePictureEffect();
+  removeTagListeners();
 }
 
 const editPhoto = function () {
   showEditPhoto();
   zoomPhoto();
   selectEffect();
+  checkHashTags();
 }
 
 uploadButton.addEventListener('change', editPhoto);
