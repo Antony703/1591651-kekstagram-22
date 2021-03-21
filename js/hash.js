@@ -23,6 +23,7 @@ const checkForDoubles = function (arr) {
     }
   }
 }
+
 const hashString = function () {
   const tags = hashTagInput.value.toLowerCase().split(' ');
 
@@ -33,14 +34,15 @@ const hashString = function () {
   } else if (checkForDoubles(tags)) {
     hashTagInput.setCustomValidity('Не допускается дублирование хеш-тегов');
   }
-  // console.log(tags)
 }
+
 const onEscPreventExt = function (evt) {
   if (evt.key === ('Escape' || 'Esc')) {
     evt.target.blur();
     evt.stopPropagation();
   }
 }
+
 const removeTagListeners = function() {
   hashTagInput.removeEventListener('input', hashString);
   hashTagInput.removeEventListener('keydown', onEscPreventExt);
@@ -52,8 +54,8 @@ const checkHashTags = function () {
   hashTagInput.addEventListener('keydown', onEscPreventExt);
   userComments.addEventListener('keydown', onEscPreventExt);
 }
-// console.log(tagsArray);
+
 export {
   checkHashTags,removeTagListeners
 };
-// при вводе строки выполняем проверку на наличие недопустимых симоволов. далее проводим разбиение на отдельные теги и проверяем на остальыне условия.
+
